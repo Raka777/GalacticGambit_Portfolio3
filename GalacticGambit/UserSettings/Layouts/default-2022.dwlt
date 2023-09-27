@@ -100,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 244
+  controlID: 170
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -481,8 +481,8 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c8610000
+      scrollPos: {x: 0, y: 1590.6666}
+      m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: 30fbffff
       m_RenameOverlay:
@@ -600,7 +600,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Unity Assets/DeepSpaceSkyboxPack/DiverseSpace/Material
+    - Assets/Unity Assets/CUBE - Sci Fi Interiors Pack/Prefabs
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -608,16 +608,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Unity Assets/DeepSpaceSkyboxPack/DiverseSpace/Material
+  - Assets/Unity Assets/CUBE - Sci Fi Interiors Pack/Prefabs
   m_LastFoldersGridSize: 96
   m_LastProjectPath: H:\Git Repos\GalacticGambit_Portfolio3\GalacticGambit
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c8610000
-    m_LastClickedID: 25032
-    m_ExpandedIDs: 0000000040600000426000004460000046600000486000007260000074600000c061000000ca9a3bffffff7f
+    m_SelectedIDs: ce600000
+    m_LastClickedID: 24782
+    m_ExpandedIDs: 000000003c6000003e600000406000004260000044600000466000006e60000070600000b460000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -645,7 +645,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004060000042600000446000004660000048600000
+    m_ExpandedIDs: 000000003c6000003e60000040600000426000004460000046600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -697,7 +697,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 120}
     m_GridSize: 96
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 366
@@ -1142,9 +1142,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.9910796, y: 0.90991294, z: -24.573105}
+    m_Target: {x: 0.8313029, y: 0.612728, z: 5.5964594}
     speed: 2
-    m_Value: {x: -0.9910796, y: 0.90991294, z: -24.573105}
+    m_Value: {x: 0.8313029, y: 0.612728, z: 5.5964594}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1190,9 +1190,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.073843926, y: -0.37070492, z: 0.030127386, w: -0.9256867}
+    m_Target: {x: 0.1123999, y: 0.7919153, z: -0.15466839, w: 0.580545}
     speed: 2
-    m_Value: {x: -0.07520659, y: -0.37053356, z: 0.030673653, w: -0.925261}
+    m_Value: {x: 0.112127505, y: 0.7925007, z: -0.15478124, w: 0.57914853}
   m_Size:
     m_Target: 2.2467866
     speed: 2
