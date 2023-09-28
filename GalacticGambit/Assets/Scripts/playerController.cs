@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     [Header("--- Components ---")]
-    [SerializeField] CharacterController controller;
+    public CharacterController controller;
     [SerializeField] GameObject bulletSpawn;
     [SerializeField] GameObject bulletFlash;
     [SerializeField] GameObject gunModel;
@@ -51,13 +51,17 @@ public class playerController : MonoBehaviour
     private ParticleSystem gunshotEffect;
     private float baseSpeedOrignal;
 
+
+    private IInteractable lastInteract;
     public bool amEnabled;
+    private bool canMove;
     // Start is called before the first frame update
     void Start()
     {
         startHealth = healthPoints;
         playerStamina = totalStamina;
         pushBackResTemp = pushBackResolve;
+        canMove = true;
         //gamemanager.instance.playerScript.spawnPlayer();
 
     }
@@ -65,10 +69,17 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement();
+        if (canMove)
+        {
+            movement();
+        }
         Sprint();
         checkInteractable();
         
+    }
+    public void toggleMovement(bool state)
+    {
+        canMove = state;
     }
 
     void checkInteractable()
@@ -77,17 +88,16 @@ public class playerController : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, interactionDistance))
         {
-            IInteractable interact; 
+            IInteractable interact;
             if(hit.collider.TryGetComponent(out interact)){
-                if (interact.isInteractable() && Input.GetButtonDown(interact.interactionKey()))
-                {
-                    interact.onInteract();
-                }
-                else
-                {
-                    interact.onInteractable();
-                }
-                
+                Debug.Log(interact);
+                interact.onInteractable(true);
+                lastInteract = interact;
+            }
+            else if(lastInteract != null) 
+            {
+                lastInteract.onInteractable(false);
+                lastInteract = null;
             }
         }
     }
@@ -226,6 +236,12 @@ public class playerController : MonoBehaviour
         isExhausted = false;
     }
 
+    public void setPosition(Transform position)
+    {
+        controller.enabled = false;
+        transform.position = position.position;
+        controller.enabled = true;
+    }
     
     //IEnumerator shoot()
     //{

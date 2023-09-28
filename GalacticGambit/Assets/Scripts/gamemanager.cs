@@ -86,6 +86,12 @@ public class gamemanager : MonoBehaviour
         {
             interactionMenu.updateInteractionText(value);
         }
+
+        public void togglePlayerMovement(bool state)
+        {
+        Debug.Log("Toggle movement");
+            playerScript.toggleMovement(state);
+        }
         //    private void Start()
         //    {
         //        addExperience(0);
