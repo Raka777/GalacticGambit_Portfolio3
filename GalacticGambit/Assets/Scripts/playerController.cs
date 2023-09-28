@@ -75,7 +75,6 @@ public class playerController : MonoBehaviour
         }
         Sprint();
         checkInteractable();
-        
     }
     public void toggleMovement(bool state)
     {
@@ -144,6 +143,7 @@ public class playerController : MonoBehaviour
     
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move((playerVelocity + pushBack) * Time.deltaTime);
+
     }
 
     IEnumerator playAudioClip(AudioSource clip)

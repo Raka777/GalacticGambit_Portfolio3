@@ -9,12 +9,9 @@ public class shipController : MonoBehaviour
     [SerializeField] float rollStrength;
     [SerializeField] float yawStrength;
     [SerializeField] float thrustStrength;
+    public Vector3 currentVelocity;
 
     public bool isBeingControlled;
-    private Vector3 screenCenter;
-    private float quarterScreenHeight;
-    private float quarterScreenWidth;
-
     //Pitch, Roll, Yaw, Thrust
     private bool adjustPitch;
     private bool adjustYaw;
@@ -33,16 +30,15 @@ public class shipController : MonoBehaviour
 
     private void Start()
     {
-        screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0);
-        quarterScreenHeight = Screen.height * 0.25f;
-        quarterScreenWidth = Screen.width * 0.25f;
-        //inertiaDampener = true;
+        inertiaDampener = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isBeingControlled)
+
+        //Ship controller is disabled until a solution can be worked through.
+        if (isBeingControlled && true != true)
         {
             pitch = getPitch();
             yaw = getYaw();
@@ -54,41 +50,38 @@ public class shipController : MonoBehaviour
             adjustRoll = roll != 0;
             adjustThrust = Mathf.Abs(thrust) > 0.1f;
 
-            Vector3 rotation = new Vector3();
 
             if(adjustPitch )
             {
-                rotation.x = -pitch * pitchStrength;
-                //rigidBody.AddTorque(transform.right * (-pitch * pitchStrength), ForceMode.Force);
+                //rotation.x = -pitch * pitchStrength;
+                rigidBody.AddTorque(transform.right * (-pitch * pitchStrength), ForceMode.Force);
             }
             if(adjustYaw )
             {
-                rotation.y = yaw * pitchStrength;
-                //rigidBody.AddTorque(transform.up * (yaw * yawStrength), ForceMode.Force);
+                //rotation.y = yaw * pitchStrength;
+                rigidBody.AddTorque(transform.up * (yaw * yawStrength), ForceMode.Force);
             }
             if(adjustRoll )
             {
-                rotation.z = roll * pitchStrength;
-                //rigidBody.AddTorque(transform.forward * (roll * rollStrength), ForceMode.Force);
+                //rotation.z = roll * pitchStrength;
+                rigidBody.AddTorque(transform.forward * (roll * rollStrength), ForceMode.Force);
             }
             if(adjustThrust)
             {
-                transform.position += transform.forward * thrust * thrustStrength * Time.deltaTime;
-                //rigidBody.AddForce(transform.forward * (thrust * thrustStrength), ForceMode.Force);
+                rigidBody.AddForce(transform.forward * (thrust * thrustStrength), ForceMode.Force);
             }
 
-            transform.Rotate(rotation * Time.deltaTime);
+            if (Input.GetButton("inertiaDamper"))
+            {
+                inertiaDampener = !inertiaDampener;
+            }
 
-            //if (Input.GetButton("inertiaDamper"))
-            //{
-            //    inertiaDampener = !inertiaDampener;
-            //}
-
-            //if(inertiaDampener)
-            //{
-            //    dampen();
-            //}
+            if(inertiaDampener)
+            {
+                dampen();
+            }
         }
+        currentVelocity = rigidBody.velocity;
     }
     private float getPitch()
     {
