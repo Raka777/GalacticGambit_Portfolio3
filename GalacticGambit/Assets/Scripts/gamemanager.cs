@@ -21,6 +21,7 @@ public class gamemanager : MonoBehaviour
 
         //[Header("--- UI Components ---")]
         public List<Image> inventoryItems;
+        [SerializeField] interactionMenu interactionMenu;
         //public List<Image> abilitySlots;
         //public Item coin;
         //public GameObject activeMenu;
@@ -67,6 +68,23 @@ public class gamemanager : MonoBehaviour
             playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+        }
+
+
+        public void toggleInteractionMenu(bool state)
+        {
+            if (state) {
+                interactionMenu.gameObject.SetActive(state);
+            }
+            else
+            {
+                interactionMenu.gameObject.SetActive(state);
+            }
+        }
+
+        public void updateInteractionMenu(string value)
+        {
+            interactionMenu.updateInteractionText(value);
         }
         //    private void Start()
         //    {
@@ -251,4 +269,4 @@ public class gamemanager : MonoBehaviour
         //        playerScript.updatePlayerUI();
         //    }
         //}
-    }
+}

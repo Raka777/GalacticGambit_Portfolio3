@@ -25,7 +25,7 @@ public class playerController : MonoBehaviour
     [SerializeField] float shootRate;
     [SerializeField] int shootDamage;
     [SerializeField] int shootDistance;
-    [SerializeField] float lifeSteal;
+    //[SerializeField] float lifeSteal;
     [SerializeField] float leanSpeed;
     [SerializeField] float leanMaxAngle;
     [SerializeField] Vector3 pushBack;
@@ -35,6 +35,9 @@ public class playerController : MonoBehaviour
     private float tickRate = .1f;
     private bool isRegening;
     private bool isExhausted;
+
+    [Header("--- Interaction Stats ---")]
+    [SerializeField] int interactionDistance;
 
     //Variable Defintions: 
     private Vector3 playerVelocity;
@@ -64,7 +67,29 @@ public class playerController : MonoBehaviour
     {
         movement();
         Sprint();
+        checkInteractable();
         
+    }
+
+    void checkInteractable()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, interactionDistance))
+        {
+            IInteractable interact; 
+            if(hit.collider.TryGetComponent(out interact)){
+                if (interact.isInteractable() && Input.GetButtonDown(interact.interactionKey()))
+                {
+                    interact.onInteract();
+                }
+                else
+                {
+                    interact.onInteractable();
+                }
+                
+            }
+        }
     }
 
     void movement()
@@ -200,6 +225,7 @@ public class playerController : MonoBehaviour
         yield return new WaitForSeconds(5);
         isExhausted = false;
     }
+
     
     //IEnumerator shoot()
     //{
