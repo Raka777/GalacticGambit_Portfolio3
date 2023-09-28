@@ -49,11 +49,13 @@ public class pilotSeat : MonoBehaviour, IInteractable
             gamemanager.instance.playerScript.setPosition(sitPosition.transform);
             gamemanager.instance.togglePlayerMovement(false);
             isSitting = true;
+            shipManager.instance.shipController.toggleControlling(true);
         }
         else
         {
             gamemanager.instance.togglePlayerMovement(true);
             isSitting = false;
+            shipManager.instance.shipController.toggleControlling(false);
         }
     }
 
@@ -61,6 +63,7 @@ public class pilotSeat : MonoBehaviour, IInteractable
     public void onInteract()
     {
         toggleSitting(true);
+        
     }
 
     public bool isInteractable()
