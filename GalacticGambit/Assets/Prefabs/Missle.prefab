@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 7110902171828873838}
   damage: 15
-  speed: 100
+  speed: 200
   destoryTime: 60
 --- !u!205 &1602799760234734806
 LODGroup:

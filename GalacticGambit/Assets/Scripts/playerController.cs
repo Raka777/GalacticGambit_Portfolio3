@@ -12,6 +12,7 @@ public class playerController : MonoBehaviour
     [SerializeField] AudioSource gunshotSound;
     [SerializeField] AudioSource playerHurtAudio;
     [SerializeField] AudioSource playerJumpAudio;
+    public Camera camera;
 
     [Header("--- Player Stats ---")]
     public float healthPoints;

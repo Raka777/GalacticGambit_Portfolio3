@@ -81,7 +81,7 @@ public class shipController : MonoBehaviour
                 dampen();
             }
         }
-        currentVelocity = rigidBody.velocity;
+        //currentVelocity = rigidBody.velocity;
     }
     private float getPitch()
     {

@@ -9,9 +9,9 @@ public class bullet : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] float destoryTime;
 
-    private void Start()
+    void Start()
     {
-        rigidBody.velocity = (shipManager.instance.transform.position - transform.position) * speed;
+        rigidBody.velocity = transform.forward * speed;
         Destroy(gameObject, destoryTime);
     }
 

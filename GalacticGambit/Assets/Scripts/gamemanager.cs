@@ -64,7 +64,7 @@ public class gamemanager : MonoBehaviour
         {
             instance = this;
             player = GameObject.FindGameObjectWithTag("Player");
-            playerScript = player.GetComponent<playerController>();
+            //playerScript = player.GetComponent<playerController>();
             playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;

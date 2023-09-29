@@ -13,10 +13,12 @@ public class enemyAI : MonoBehaviour
     [SerializeField] GameObject bulletShootPosition;
     [SerializeField] float bulletShootRate;
     [SerializeField] float bulletShootRange;
+    [SerializeField] int bulletCount;
     [SerializeField] GameObject missle;
     [SerializeField] GameObject missleShootPosition;
     [SerializeField] float missleShootRate;
     [SerializeField] float missleShootRange;
+    [SerializeField] int missleCount;
 
     private bool isOrbitting;
     private bool isShootingBullet;
@@ -41,12 +43,12 @@ public class enemyAI : MonoBehaviour
             transform.LookAt(ship.transform.position);
         }
 
-        if (distanceToTarget < bulletShootRange && !isShootingBullet)
+        if (distanceToTarget < bulletShootRange && !isShootingBullet && bulletCount > 0)
         {
             StartCoroutine(shootBullet());
         }
 
-        if(distanceToTarget < missleShootRange && !isShootingMissle)
+        if(distanceToTarget < missleShootRange && !isShootingMissle && missleCount > 0)
         {
             StartCoroutine(shootMissle());
         }
@@ -57,6 +59,7 @@ public class enemyAI : MonoBehaviour
         isShootingBullet = true;
         Debug.Log("Spawn bullet");
         Instantiate(bullet, bulletShootPosition.transform.position, transform.rotation);
+        bulletCount--;
         yield return new WaitForSeconds(bulletShootRate);
         isShootingBullet = false;
     }
@@ -64,6 +67,7 @@ public class enemyAI : MonoBehaviour
     {
         isShootingMissle = true;
         Instantiate(missle, missleShootPosition.transform.position, transform.rotation);
+        missleCount--;
         yield return new WaitForSeconds(missleShootRate);
         isShootingMissle = false;
     }

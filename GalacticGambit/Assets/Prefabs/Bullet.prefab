@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 7367750663162343411}
   damage: 5
-  speed: 15
+  speed: 600
   destoryTime: 10
 --- !u!96 &2498705232256403034
 TrailRenderer:
