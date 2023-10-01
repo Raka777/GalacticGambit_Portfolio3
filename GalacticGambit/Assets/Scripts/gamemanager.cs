@@ -15,7 +15,6 @@ public class gamemanager : MonoBehaviour
         public GameObject player;
         public playerController playerScript;
         public GameObject playerSpawnPos;
-        // public List<character> characterList;
         public List<gun> gunList;
         [SerializeField] int experienceToNextLevel;
 
@@ -24,20 +23,16 @@ public class gamemanager : MonoBehaviour
         [SerializeField] interactionMenu interactionMenu;
         //public List<Image> abilitySlots;
         //public Item coin;
-        //public GameObject activeMenu;
+        public GameObject activeMenu;
         //public Image playerHPBar;
         //public Image playerStaminaBar;
         //[SerializeField] Image levelBar;
-        //[SerializeField] GameObject pauseMenu;
-        //[SerializeField] GameObject winMenu;
+        [SerializeField] GameObject pauseMenu;
+        [SerializeField] GameObject fullMainMenu;
         //public GameObject loseMenu;
-        //[SerializeField] GameObject storeMenu;
-        //[SerializeField] GameObject mainMenu;
-        //[SerializeField] GameObject fullMainMenu;
-        //[SerializeField] GameObject characterSelectionMenu;
+        [SerializeField] GameObject storeMenu;
+        [SerializeField] GameObject mainMenu;
         //[SerializeField] GameObject playerDamageFlash;
-        //public TMP_Text waveTimerText;
-        //public TMP_Text waveNumberText;
         //public TMP_Text stanimaText;
         //public TMP_Text experienceText;
         //public TMP_Text healthPointsText;
@@ -98,106 +93,116 @@ public class gamemanager : MonoBehaviour
         //
         //    }
         //
-        //    void Update()
-        //    {
-        //        if (!characterSelected)
-        //        {
-        //            toggleFullMainMenu(true);
-        //            characterSelected = true;
-        //        }
-        //
-        //        if (Input.GetButtonDown("Cancel") && activeMenu == null)
-        //        {
-        //            statePause();
-        //            activeMenu = pauseMenu;
-        //            activeMenu.SetActive(isPaused);
-        //        }
-        //        else if (Input.GetButtonDown("Cancel") && activeMenu == storeMenu)
-        //        {
-        //            toggleStore(false);
-        //        }
-        //    }
-        //    //Enter pause state
-        //    public void statePause()
-        //    {
-        //        Time.timeScale = 0;
-        //        Cursor.visible = true;
-        //        Cursor.lockState = CursorLockMode.Confined;
-        //        isPaused = !isPaused;
-        //    }
-        //    //Exit pause state
-        //    public void stateUnpause()
-        //    {
-        //        Time.timeScale = 1;
-        //        Cursor.visible = false;
-        //        Cursor.lockState = CursorLockMode.Locked;
-        //        isPaused = !isPaused;
-        //        activeMenu.SetActive(isPaused);
-        //        activeMenu = null;
-        //    }
-        //    //Toggle store menu and pause/unpause game.
-        //    public void toggleStore(bool state)
-        //    {
-        //        if (state)
-        //        {
-        //            storeMenu.SetActive(state);
-        //            activeMenu = storeMenu;
-        //            statePause();
-        //
-        //        }
-        //        else
-        //        {
-        //            stateUnpause();
-        //        }
-        //    }
-        //    //Toggle character selection menu on start, unpause game once false
-        //    public void toggleCharacterSection(bool state)
-        //    {
-        //        if (state)
-        //        {
-        //            characterSelectionMenu.SetActive(state);
-        //            fullMainMenu.SetActive(state);
-        //            activeMenu = characterSelectionMenu;
-        //            statePause();
-        //        }
-        //        else
-        //        {
-        //            stateUnpause();
-        //            activeMenu = fullMainMenu;
-        //            toggleFullMainMenu(false);
-        //        }
-        //    }
-        //    //Deactivate main menu gameobject entirely.
-        //    public void toggleFullMainMenu(bool state)
-        //    {
-        //        if (state)
-        //        {
-        //            activeMenu = fullMainMenu;
-        //            fullMainMenu.SetActive(state);
-        //            statePause();
-        //
-        //        }
-        //        else
-        //        {
-        //            stateUnpause();
-        //        }
-        //
-        //    }
-        //    //Toggle main menu screen once character game is playing.
-        //    public void toggleMainMenu(bool state)
-        //    {
-        //        if (state)
-        //        {
-        //            mainMenu.SetActive(state);
-        //            activeMenu = mainMenu;
-        //            statePause();
-        //        }
-        //        else
-        //        {
-        //            stateUnpause();
-        //            toggleCharacterSection(true);
-        //        }
-        //    }
+        void Update()
+        {
+            if (!characterSelected)
+            {
+                toggleFullMainMenu(true);
+                characterSelected = true;
+            }
+            if (Input.GetButtonDown("Cancel") && activeMenu == null)
+               {
+                   statePause();
+                   activeMenu = pauseMenu;
+                   activeMenu.SetActive(isPaused);
+               }
+        }
+           //Enter pause state
+           public void statePause()
+           {
+               Time.timeScale = 0;
+               Cursor.visible = true;
+               Cursor.lockState = CursorLockMode.Confined;
+               isPaused = !isPaused;
+           }
+           //Exit pause state
+           public void stateUnpause()
+           {
+               Time.timeScale = 1;
+               Cursor.visible = false;
+               Cursor.lockState = CursorLockMode.Locked;
+               isPaused = !isPaused;
+               activeMenu.SetActive(isPaused);
+               activeMenu = null;
+           }
+            //Toggle store menu and pause/unpause game.
+            public void toggleStore(bool state)
+            {
+                if (state)
+                {
+                    storeMenu.SetActive(state);
+                    activeMenu = storeMenu;
+                    statePause();
+        
+                }
+                else
+                {
+                    stateUnpause();
+                }
+            }
+
+        public void toggleFullMainMenu(bool state)
+        {
+            if (state)
+            {
+                activeMenu = fullMainMenu;
+                fullMainMenu.SetActive(state);
+                statePause();
+
+            }
+            else
+            {
+                stateUnpause();
+            }
+    
+        }
+    //    //Toggle character selection menu on start, unpause game once false
+    //    public void toggleCharacterSection(bool state)
+    //    {
+    //        if (state)
+    //        {
+    //            characterSelectionMenu.SetActive(state);
+    //            fullMainMenu.SetActive(state);
+    //            activeMenu = characterSelectionMenu;
+    //            statePause();
+    //        }
+    //        else
+    //        {
+    //            stateUnpause();
+    //            activeMenu = fullMainMenu;
+    //            toggleFullMainMenu(false);
+    //        }
+    //    }
+    //    //Deactivate main menu gameobject entirely.
+    //    public void toggleFullMainMenu(bool state)
+    //    {
+    //        if (state)
+    //        {
+    //            activeMenu = fullMainMenu;
+    //            fullMainMenu.SetActive(state);
+    //            statePause();
+    //
+    //        }
+    //        else
+    //        {
+    //            stateUnpause();
+    //        }
+    //
+    //    }
+    //Toggle main menu screen once character game is playing.
+    public void toggleMainMenu(bool state)
+           {
+               if (state)
+               {
+                   mainMenu.SetActive(state);
+                   activeMenu = mainMenu;
+                   statePause();
+               }
+               else
+               {
+                   stateUnpause();
+               }
+           }
         //
         //    IEnumerator youWinMenu()
         //    {
