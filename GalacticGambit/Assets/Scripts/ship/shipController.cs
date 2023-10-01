@@ -38,7 +38,7 @@ public class shipController : MonoBehaviour
     {
 
         //Ship controller is disabled until a solution can be worked through.
-        if (isBeingControlled && true != true)
+        if (isBeingControlled)
         {
             pitch = getPitch();
             yaw = getYaw();
