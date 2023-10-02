@@ -13,4 +13,12 @@ public interface IInteractable
     public bool isInteractable();
 
     public string interactionKey();
+
+    public void repair(int experience, int modifier);
+
+    public void man();
+
+    public void toggleEnabled();
+
+    public void back();
 }

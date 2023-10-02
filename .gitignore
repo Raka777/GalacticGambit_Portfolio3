@@ -412,3 +412,7 @@ GalacticGambit/Library/SourceAssetDB
 GalacticGambit/Library/SceneVisibilityState.asset
 GalacticGambit/Library/ilpp.pid
 GalacticGambit/Library/ArtifactDB
+/GalacticGambit/Library
+/GalacticGambit/Logs
+/GalacticGambit/obj
+/GalacticGambit/UserSettings

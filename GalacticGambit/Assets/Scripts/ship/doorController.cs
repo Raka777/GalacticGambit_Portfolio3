@@ -8,9 +8,12 @@ public class doorController : MonoBehaviour, IInteractable
     [SerializeField] string interactionKeyCode;
     [SerializeField] Animator animator;
     [SerializeField] int closeTime;
+    [SerializeField] int baseRepairTime;
 
     private bool interactable;
     private bool isOpen;
+    private bool isDisabled;
+    private int health;
     void Update()
     {
         if (interactable && Input.GetButtonDown(interactionKeyCode) && !isOpen)
@@ -61,5 +64,39 @@ public class doorController : MonoBehaviour, IInteractable
     public string interactionKey()
     {
         return interactionKeyCode;
+    }
+    private IEnumerator repairComponent(int timeToRepair)
+    {
+        yield return new WaitForSeconds(timeToRepair);
+        health = 100;
+    }
+
+    public void repair(int experience, int modifier)
+    {
+        float timeReduction = 0;
+        for (int i = 0; i <= experience; i++)
+        {
+            timeReduction += .1f;
+        }
+
+        StartCoroutine(repairComponent((int)(baseRepairTime - (baseRepairTime * timeReduction) + modifier)));
+    }
+
+    public void man()
+    {
+        if (!isDisabled)
+        {
+            //Toggle Navigation Menu
+        }
+    }
+
+    public void toggleEnabled()
+    {
+        isDisabled = !isDisabled;
+    }
+
+    public void back()
+    {
+        gamemanager.instance.toggleInteractionMenu(false);
     }
 }

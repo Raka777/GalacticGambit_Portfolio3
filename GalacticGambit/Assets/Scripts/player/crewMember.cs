@@ -6,12 +6,17 @@ using UnityEngine.AI;
 public class crewMember : MonoBehaviour
 {
     [Header("--- Components ---")]
-    [SerializeField] NavMeshAgent agent;
+    public NavMeshAgent agent;
     [SerializeField] GameObject selectedIndicator;
     [SerializeField] GameObject waypointMarker;
 
+    [Header("--- Stats ---")]
+    public int repairExperience;
+    public int repairModifier;
+
     bool isSelected;
     GameObject inGameWaypointMarker;
+    public IInteractable selectedInteraction;
     // Update is called once per frame
     void Update()
     {
@@ -56,4 +61,23 @@ public class crewMember : MonoBehaviour
             isSelected = false;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        IInteractable interactable;
+        if(other.TryGetComponent(out interactable))
+        {
+            interactable.onInteractable(true);
+            selectedInteraction = interactable;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(selectedInteraction != null)
+        {
+            selectedInteraction.onInteractable(false);
+            selectedInteraction = null;
+        }
+    }
+
 }

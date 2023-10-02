@@ -57,7 +57,7 @@ public class enemyAI : MonoBehaviour
     IEnumerator shootBullet()
     {
         isShootingBullet = true;
-        Debug.Log("Spawn bullet");
+        //Debug.Log("Spawn bullet");
         Instantiate(bullet, bulletShootPosition.transform.position, transform.rotation);
         bulletCount--;
         yield return new WaitForSeconds(bulletShootRate);

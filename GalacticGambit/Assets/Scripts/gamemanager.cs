@@ -17,10 +17,11 @@ public class gamemanager : MonoBehaviour
         public GameObject playerSpawnPos;
         public List<gun> gunList;
         [SerializeField] int experienceToNextLevel;
+        public topDownPlayerController topDownPlayerController;
 
         //[Header("--- UI Components ---")]
         public List<Image> inventoryItems;
-        [SerializeField] interactionMenu interactionMenu;
+        public interactionMenu interactionMenu;
         //public List<Image> abilitySlots;
         //public Item coin;
         public GameObject activeMenu;
