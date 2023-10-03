@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class pilotSeat : MonoBehaviour, IInteractable,IDamage
+public class battery : MonoBehaviour, IInteractable, IDamage
 {
     [SerializeField] string interactionText;
     [SerializeField] string interactionKeyCode;
@@ -15,15 +15,24 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
 
     [SerializeField] List<Interaction> interactionsPossible;
 
+    [SerializeField] float powerCapcity;
+
     private bool interactable;
     private bool isSitting;
 
     private float health = 100;
 
     private bool isDisabled;
+    private bool updatePower;
 
     private bool isManned;
 
+    void Start()
+    {
+        updatePower = true;
+    }
+
+    // Update is called once per frame
     void Update()
     {
         if (interactable && Input.GetButtonDown(interactionKeyCode))
@@ -31,21 +40,32 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
             onInteract();
         }
 
-        if(isSitting && Input.GetButtonDown("Cancel"))
+        if (isSitting && Input.GetButtonDown("Cancel"))
         {
             Debug.Log("Stop Interaction");
         }
 
-        if(health < 100 && healthIndicator.gameObject.activeSelf != true)
+        if (health < 100 && healthIndicator.gameObject.activeSelf != true)
         {
             healthIndicator.gameObject.SetActive(true);
         }
-        else if(health >= 100 && healthIndicator.gameObject.activeSelf != false)
+        else if (health >= 100 && healthIndicator.gameObject.activeSelf != false)
         {
             healthIndicator.gameObject.SetActive(false);
         }
+
+        if (!isDisabled && updatePower)
+        {
+            shipManager.instance.addReserveCapacity(powerCapcity);
+            updatePower = false;
+        }
+        if (isDisabled && updatePower)
+        {
+            shipManager.instance.removeReserveCapacity(powerCapcity);
+            updatePower = false;
+        }
     }
-    //The function used to display information when an object becomes interactable.
+
     public void onInteractable(bool state)
     {
         if (state)
@@ -54,7 +74,7 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
             gamemanager.instance.interactionMenu.updateInteractionOptions(interactionsPossible);
             gamemanager.instance.interactionMenu.gameObject.SetActive(true);
             interactable = true;
-            
+
         }
         else
         {
@@ -63,8 +83,8 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
             interactable = false;
             gamemanager.instance.interactionMenu.clearList();
         }
-        
-    }  
+
+    }
 
     public void takeDamage(int amount)
     {
@@ -75,7 +95,7 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
     //The function used to trigger the interaction when an object is interacted with.
     public void onInteract()
     {
-    Debug.Log("Interact");
+        Debug.Log("Interact");
     }
 
     public bool isInteractable()
@@ -117,7 +137,7 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
 
     public bool amIManned()
     {
-        if(isManned &&  !isDisabled)
+        if (isManned && !isDisabled)
         {
             return isManned;
         }
@@ -127,6 +147,7 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
     public void toggleEnabled()
     {
         isDisabled = !isDisabled;
+        updatePower = true;
     }
 
     public void back()
