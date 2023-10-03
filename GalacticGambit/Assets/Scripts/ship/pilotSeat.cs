@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class pilotSeat : MonoBehaviour, IInteractable
+public class pilotSeat : MonoBehaviour, IInteractable,IDamage
 {
     [SerializeField] string interactionText;
     [SerializeField] string interactionKeyCode;
     [SerializeField] GameObject sitPosition;
+    [SerializeField] Image healthBar;
 
     [SerializeField] int baseRepairTime;
 
@@ -15,7 +17,7 @@ public class pilotSeat : MonoBehaviour, IInteractable
     private bool interactable;
     private bool isSitting;
 
-    private int health = 100;
+    private float health = 100;
 
     private bool isDisabled;
 
@@ -51,6 +53,12 @@ public class pilotSeat : MonoBehaviour, IInteractable
         }
         
     }  
+
+    public void takeDamage(int amount)
+    {
+        health -= amount;
+        healthBar.fillAmount = health / 100;
+    }
 
     //The function used to trigger the interaction when an object is interacted with.
     public void onInteract()

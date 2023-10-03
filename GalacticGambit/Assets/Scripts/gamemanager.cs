@@ -47,6 +47,7 @@ public class gamemanager : MonoBehaviour
         [SerializeField] int enemiesRemain;
 
 
+
         //Variable definitions:
         public bool isPaused;
         bool pickup;
