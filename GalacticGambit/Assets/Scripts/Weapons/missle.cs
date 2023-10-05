@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class missle : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class missle : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] int speed;
     [SerializeField] float destoryTime;
+    [SerializeField] ParticleSystem paricle;
 
     void Start()
     {
@@ -22,6 +24,8 @@ public class missle : MonoBehaviour
         {
             damageable.takeDamage(damage);
         }
+        ParticleSystem spawnedParticleSystem = Instantiate(paricle, transform.position, Quaternion.Inverse(transform.rotation));
+        Destroy(spawnedParticleSystem, 2);
         Destroy(gameObject);
     }
 }

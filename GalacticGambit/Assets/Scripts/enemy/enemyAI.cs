@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyAI : MonoBehaviour
+public class enemyAI : MonoBehaviour, IDamage
 {
     [SerializeField] shipManager ship;
     [SerializeField] float movementSpeed;
@@ -19,6 +19,7 @@ public class enemyAI : MonoBehaviour
     [SerializeField] float missleShootRate;
     [SerializeField] float missleShootRange;
     [SerializeField] int missleCount;
+    [SerializeField] int health;
 
     private bool isOrbitting;
     private bool isShootingBullet;
@@ -70,5 +71,26 @@ public class enemyAI : MonoBehaviour
         missleCount--;
         yield return new WaitForSeconds(missleShootRate);
         isShootingMissle = false;
+    }
+
+    IEnumerator explode()
+    {
+        //Play particle effect and sound effect
+
+        //Game object should stop orbitting and continue in direction it was last traveling as well.
+        //Game object should stop shooting.
+        yield return new WaitForSeconds(3);
+        Destroy(transform.gameObject);
+    }
+
+    public void takeDamage(int amount)
+    {
+        health -= amount;
+
+        if(health <= 0)
+        {
+            StartCoroutine(explode());
+        }
+
     }
 }

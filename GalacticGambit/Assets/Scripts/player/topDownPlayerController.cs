@@ -49,6 +49,22 @@ public class topDownPlayerController : MonoBehaviour
             horizontalInput = 0f;
             verticalInput = 0f;
         }
+        if(transform.position.x + verticalInput >= heightMaxLimitation)
+        {
+            verticalInput = -1f;
+        }
+        if(transform.position.x + verticalInput <= heightMinLimitation)
+        {
+            verticalInput = 1f;
+        }
+        if(transform.position.z + horizontalInput >= widthMaxLimitation)
+        {
+            horizontalInput = 1f;
+        }
+        if(transform.position.z + horizontalInput <= widthMinLimitation)
+        {
+            horizontalInput = -1f;
+        }
 
         Vector3 cameraForward = camera.transform.forward;
         Vector3 cameraRight = camera.transform.right;

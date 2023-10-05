@@ -10,6 +10,9 @@ public class shipManager : MonoBehaviour, IDamage
 
     [SerializeField] List<GameObject> thrusters;
 
+    [Header("--- Ship Stats ---")]
+    [SerializeField] int health;
+
     [Header("--- Power System ---")]
     [SerializeField] Image powerAvailableIndicator;
     [SerializeField] TMP_Text powerAvailableText;
@@ -150,10 +153,25 @@ public class shipManager : MonoBehaviour, IDamage
 
     }
 
+    IEnumerator explode()
+    {
+        //Play particle effect, play sound effect.
+        //Zoom camera out.
+        yield return new WaitForSeconds(5);
+        //Display lose menu
+        Destroy(transform.gameObject);
+    }
 
     public void takeDamage(int amount)
     {
-        Debug.Log("Take damage");
+        //Debug.Log("Take damage");
+        health -= amount;
+
+        if(health <= 0)
+        {
+            StartCoroutine(explode());
+        }
+
     }
 
 

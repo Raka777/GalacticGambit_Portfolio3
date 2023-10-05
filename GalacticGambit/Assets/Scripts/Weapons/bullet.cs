@@ -8,6 +8,7 @@ public class bullet : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] int speed;
     [SerializeField] float destoryTime;
+    [SerializeField] ParticleSystem paricle;
 
     void Start()
     {
@@ -22,6 +23,8 @@ public class bullet : MonoBehaviour
         {
             damageable.takeDamage(damage);
         }
+        ParticleSystem spawnedParticleSystem = Instantiate(paricle, transform.position, Quaternion.Inverse(transform.rotation));
+        Destroy(spawnedParticleSystem, 2);
         Destroy(gameObject);
     }
 }
