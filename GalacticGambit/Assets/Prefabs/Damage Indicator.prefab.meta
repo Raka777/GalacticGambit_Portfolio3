@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:GalacticGambit/Assets/Prefabs/Damage Indicator.prefab.meta
 fileFormatVersion: 2
 guid: 5132f87141971944fbe01832ffe87dcb
 PrefabImporter:
@@ -5,3 +6,12 @@ PrefabImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: ee9ad019452796e46945e4870e3717e4
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes:GalacticGambit/Library/PackageCache/com.unity.editorcoroutines@1.0.0/README.md.meta

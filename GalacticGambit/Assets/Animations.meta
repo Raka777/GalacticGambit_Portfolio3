@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:GalacticGambit/Assets/Animations.meta
 fileFormatVersion: 2
 guid: 3779ae84fab98844e80650258892d729
 folderAsset: yes
@@ -6,3 +7,13 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: a36d8b72880a8004f96ac54ce4598ff9
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes:GalacticGambit/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35.meta

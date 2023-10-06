@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:GalacticGambit/Assets/Prefabs/Ship Rooms.meta
 fileFormatVersion: 2
 guid: 7947fb29c72d7ac409bd14c7424ec4cf
 folderAsset: yes
@@ -6,3 +7,13 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 9129183a42052cd43b9c284d6dbd541e
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes:GalacticGambit/Library/PackageCache/com.unity.ide.rider@3.0.24/Rider.meta

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:GalacticGambit/Assets/OccaSoftware.meta
 fileFormatVersion: 2
 guid: 8a25a5ac455eb2d4d9f0baee91a86764
 folderAsset: yes
@@ -6,3 +7,13 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 4baf9d3a89175c143b9d1bb3e62526e7
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes:GalacticGambit/Library/PackageCache/com.unity.editorcoroutines@1.0.0/Editor.meta

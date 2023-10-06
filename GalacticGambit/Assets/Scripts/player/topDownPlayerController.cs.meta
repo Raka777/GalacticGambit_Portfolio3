@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:GalacticGambit/Assets/Scripts/player/topDownPlayerController.cs.meta
 fileFormatVersion: 2
 guid: fa17c39c9ca73794c83fa2ac9f65c1ce
 MonoImporter:
@@ -9,3 +10,16 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 3f93931a6fe807b45809dbc0ddf91260
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes:GalacticGambit/Library/PackageCache/com.unity.editorcoroutines@1.0.0/Editor/EditorCoroutine.cs.meta

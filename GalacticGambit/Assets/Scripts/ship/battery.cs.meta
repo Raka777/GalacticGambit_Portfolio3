@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:GalacticGambit/Assets/Scripts/ship/battery.cs.meta
 fileFormatVersion: 2
 guid: 356c015ff4a96244c9eb346cfa82b1b4
 MonoImporter:
@@ -9,3 +10,16 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: a672678b43d60c542ad9d861eba67c99
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes:GalacticGambit/Library/PackageCache/com.unity.editorcoroutines@1.0.0/Editor/EditorCoroutineUtility.cs.meta

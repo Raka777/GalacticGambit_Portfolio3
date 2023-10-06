@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:GalacticGambit/Assets/Prefabs/Generator.prefab.meta
 fileFormatVersion: 2
 guid: c8e14b236023a37428ec4d4471c01ac6
 PrefabImporter:
@@ -5,3 +6,12 @@ PrefabImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 6428ca6f30e71ee4dbea7e1d0787cb07
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes:GalacticGambit/Library/PackageCache/com.unity.editorcoroutines@1.0.0/package.json.meta

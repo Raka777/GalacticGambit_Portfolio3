@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:GalacticGambit/Assets/Prefabs/Character Selection.meta
 fileFormatVersion: 2
 guid: 1553e80766ad2564888ca1a6c041d0e2
 folderAsset: yes
@@ -6,3 +7,13 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 2347243c7aa3e224f9282dc94e6fc3b2
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes:GalacticGambit/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom.meta

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:GalacticGambit/Assets/Unity Assets/Markus Art/Animations(Pattern_Unity)/Anim_Controller/Astronault_Animation_Controller.controller.meta
 fileFormatVersion: 2
 guid: 9230a754a5a4c4849b17b8bcfdd3d133
 NativeFormatImporter:
@@ -6,3 +7,12 @@ NativeFormatImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 478a2357cc57436488a56e564b08d223
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes:GalacticGambit/Library/PackageCache/com.unity.editorcoroutines@1.0.0/Editor/Unity.EditorCoroutines.Editor.asmdef.meta
